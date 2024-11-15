@@ -18,7 +18,8 @@ BurritoKing allows customers to order food from the Burrito King restaurant, off
     - Update the status of orders from "await collection" to “collected” or “cancelled.”
     - Export order history to a CSV file, allowing the customer to select which orders and what information to export.
 
-* VIP Customer
+* VIP Customer <be> 
+
     New customers are registered as non-VIP by default. After logging in,they have the option to upgrade to VIP status by providing an email address to subscribe to promotions. VIP customers have the following additional features:
     - Order a meal (a burrito, one serving of fries, and a soda) with a $3 discount.
     - Use credits when paying for orders, specifying the number of credits to redeem. Every 100 credits can be used as one dollar.
