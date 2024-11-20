@@ -62,26 +62,26 @@ BurritoKing allows customers to order food from the Burrito King restaurant, off
 - ``OrderDetail``: Represents a customer's order with details, providing methods for updating order status, validating collection time, and retrieving formatted order detail string.
 - ``Restaurant``: Manages food prices, remaining fries, and meal discounts. It provides methods to calculate preparation time for orders, update remaining fries based on orders, and retrieve food prices.
 - ``SessionManager``: The SessionManager class follows the Singleton pattern to manage the current session of a user. It handles user information, active orders, order details, and interaction with the restaurant. 
-- ``StatusEnum``: Represents the possible states of an order. It defines three statuses: AWAIT_COLLECTION, COLLECTED, and CANCELLED.
+- ``StatusEnum``: Represents the possible states of an order (AWAIT_COLLECTION, COLLECTED, and CANCELLED).
 - ``User``: Represents a user with a username, password, first name, and last name.
 - ``UserVIP``: Extends the User class and represents a VIP user with additional features such as email and credit points. It provides methods for calculating redeemable amounts based on the user's credit points and subtotal, as well as updating the user's credit points after a transaction.
 
 ### Views
-- ``ChooseQty``:
-- ``CollectDateTime``:
-- ``EditProfile``:
-- ``EditQty``:
-- ``FoodCart``:
-- ``FoodCartEdit``:
-- ``FoodMenu``:
-- ``Login``:
-- ``MainMenu``:
-- ``OrderDateTime``:
-- ``OrderHistoryExport``:
-- ``OrderPayment``:
-- ``RedeemCredit``:
-- ``Register``:
-- ``UpgradeVIP``:
+- ``ChooseQty``
+- ``CollectDateTime``
+- ``EditProfile``
+- ``EditQty``
+- ``FoodCart``
+- ``FoodCartEdit``
+- ``FoodMenu``
+- ``Login``
+- ``MainMenu``
+- ``OrderDateTime``
+- ``OrderHistoryExport``
+- ``OrderPayment``
+- ``RedeemCredit``
+- ``Register``
+- ``UpgradeVIP``
 
 ### Tests
 - CancelOrderTest
