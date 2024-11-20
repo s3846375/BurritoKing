@@ -25,57 +25,63 @@ BurritoKing allows customers to order food from the Burrito King restaurant, off
     - Use credits when paying for orders, specifying the number of credits to redeem. Every 100 credits can be used as one dollar.
     - Earn credits for each dollar spent on an order (excluding redeemed amounts).
 
+### IDE and java version
+* IDE: IntelliJ
+* Java Version: 22.0.1
+* JavaFX Version: 21
+* Database: SQLite
+
 
 ### Controllers
-- Main
-- ChooseQtyCtrl
-- CollectDateTimeCtrl
-- EditProfileCtrl
-- FoodCartCtrl
-- FoodCartEditCtrl
-- FoodCartEditQtyCtrl
-- FoodMenuCtrl
-- LoginCtrl
-- MainMenuCtrl
-- OrderDateTimeCtrl
-- OrderHistoryExportCtrl
-- OrderPaymentCtrl
-- RedeemCreditCtrl
-- RegisterCtrl
-- UpgradeVIPCtrl
+- ``Main``: Launches the JavaFX application and initialises the database.
+- ``ChooseQtyCtrl``: Controls food item quantity selection and manages transitions to the food menu.
+- ``CollectDateTimeCtrl``: Handles the input and validation of collection datetime for orders, status updates, and navigation to MainMenu.
+- ``EditProfileCtrl``: Manages the user's profile editing, updates the database with new information, and handles navigation to the login screen.
+- ``FoodCartCtrl``: Displays the summary of the active order, allows navigation to food menu, cart editing, and payment screens.
+- ``FoodCartEditCtrl``: Displays the food items in the active order, allows users to select and edit food quantities.
+- ``FoodCartEditQtyCtrl``: Allows users to edit the quantity of a selected food item in the active order and updates the order accordingly.
+- ``FoodMenuCtrl``: Manages food menu display, controls the visibility of the Meal button for VIP users, and handles navigation to food quantity selection and the food cart.
+- ``LoginCtrl``: Manages user login validation, sets the session user and order history, and navigates to the main menu or registration screen.
+- ``MainMenuCtrl``: Manages the main menu for the user, displaying their active orders, providing options for profile editing, upgrading to VIP, canceling orders, and navigating to other views like order history and food menu.
+- ``OrderDateTimeCtrl``: Manages the order date and time selection, allows user to finalize the order, update remaining items like Fries, reset the active order, and save the order details to history.
+- ``OrderHistoryExportCtrl``: Handles the export of the user's order history to a CSV file. It allows the user to select specific order details, choose a file name and directory.
+- ``OrderPaymentCtrl``: Handles order payment process, including credit card validation, redeeming VIP credits, and updating the final payment.
+- ``RedeemCreditCtrl``: Manages the process of redeeming VIP credit for an order, allowing the user to select the redeemable amount and updating the final payment accordingly.
+- ``RegisterCtrl``: Handles user registration by validating input, checking for existing usernames, and saving new user details to the database.
+- ``UpgradeVIPCtrl``: Manages the process of upgrading a user to VIP status, including email validation and saving to the database. 
 
 ### Models
-- Burrito
-- CreditCardAuthenticator
-- DatabaseManager
-- FoodItem
-- Fries
-- Meal
-- Order
-- OrderDetail
-- Restaurant
-- SessionManager
-- Soda
-- StatusEnum
-- User
-- UserVIP
+- ``FoodItem``: Represents an item on a menu with a unit price and quantity. 
+- ``Burrito``: Extends FoodItem and represents a Burrito item with a predefined batch preparation time and batch size.
+- ``Fries``: Extends FoodItem and represents a fries item with a predefined batch preparation time and batch size.
+- ``Soda``: Extends FoodItem and represents a soda item.
+- ``Meal``: Extends FoodItem and represents a meal item.
+- ``CreditCardAuthenticator``: Provides a utility method to validate credit card information including card number, expiry date, and CVV.
+- ``DatabaseManager``: Handles the creation and management of SQLite database tables and operations for users, VIP users, and order history.
+- ``Order``: Manages a customer's food order, storing a list of FoodItem objects. It provides methods to add new items or update the quantity of existing items, as well as remove items. The class also includes a method to calculate the total price of the order by summing the price of each food item based on its quantity.
+- ``OrderDetail``: Represents a customer's order with details, providing methods for updating order status, validating collection time, and retrieving formatted order detail string.
+- ``Restaurant``: Manages food prices, remaining fries, and meal discounts. It provides methods to calculate preparation time for orders, update remaining fries based on orders, and retrieve food prices.
+- ``SessionManager``: The SessionManager class follows the Singleton pattern to manage the current session of a user. It handles user information, active orders, order details, and interaction with the restaurant. 
+- ``StatusEnum``: Represents the possible states of an order. It defines three statuses: AWAIT_COLLECTION, COLLECTED, and CANCELLED.
+- ``User``: Represents a user with a username, password, first name, and last name.
+- ``UserVIP``: Extends the User class and represents a VIP user with additional features such as email and credit points. It provides methods for calculating redeemable amounts based on the user's credit points and subtotal, as well as updating the user's credit points after a transaction.
 
 ### Views
-- ChooseQty
-- CollectDateTime
-- EditProfile
-- EditQty
-- FoodCart
-- FoodCartEdit
-- FoodMenu
-- Login
-- MainMenu
-- OrderDateTime
-- OrderHistoryExport
-- OrderPayment
-- RedeemCredit
-- Register
-- UpgradeVIP
+- ``ChooseQty``:
+- ``CollectDateTime``:
+- ``EditProfile``:
+- ``EditQty``:
+- ``FoodCart``:
+- ``FoodCartEdit``:
+- ``FoodMenu``:
+- ``Login``:
+- ``MainMenu``:
+- ``OrderDateTime``:
+- ``OrderHistoryExport``:
+- ``OrderPayment``:
+- ``RedeemCredit``:
+- ``Register``:
+- ``UpgradeVIP``:
 
 ### Tests
 - CancelOrderTest
@@ -86,8 +92,3 @@ BurritoKing allows customers to order food from the Burrito King restaurant, off
 - TotalCostTest
 - UpdateCreditTest
 
-### IDE and java version
-* IDE: IntelliJ
-* Java Version: 22.0.1
-* JavaFX Version: 21
-* Database: SQLite
